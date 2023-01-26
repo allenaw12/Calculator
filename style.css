@@ -11,8 +11,13 @@ a{
     border-radius: 50%;
 }
 span {
-    width: 25rem;
-    height: 5rem;
+    padding: 0 1rem;
+    text-align: right;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 175%;
+    width: 21rem;
+    height: 5.5rem;
     margin: 3rem auto 2rem auto;
     display: block;
     background-color: white;
@@ -59,4 +64,5 @@ ul {
     font-size: 3rem;
     line-height: 150%;
     margin: .5rem;
+    cursor: pointer;
 }
