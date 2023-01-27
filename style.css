@@ -24,7 +24,7 @@ span {
 }
 .calc-container{
     width: 30rem;
-    height: 40rem;
+    height: 46rem;
     margin: 5rem auto;
     display: flex;
     flex-direction: column;
@@ -55,6 +55,18 @@ ul {
 }
 .nums li:nth-of-type(11){
     order:11;
+}
+.nums li:nth-of-type(12){
+    order:10;
+}
+.nums li:nth-of-type(13){
+    order:13;
+}
+.nums li:nth-of-type(14){
+    order:14;
+}
+.nums li:nth-of-type(15){
+    order:15;
 }
 .button-container li {
     text-align: center;
