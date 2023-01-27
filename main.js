@@ -99,12 +99,17 @@ function clicky(event){
             displayCurrent.innerText = display
             console.log('divide opp')
         }else if(value === '='){
-            operation = ''
+            operation = value
             console.log('problem' ,concatNums)
-            display = concatNums.includes('+')?addition(concatNums):concatNums.includes('/')?division(concatNums):concatNums.includes('x')?multiplication(concatNums):concatNums.includes('−')?subtraction(concatNums):display
+            display = concatNums.includes('+')?addition(concatNums):concatNums.includes('/')?division(concatNums):concatNums.includes('x')?multiplication(concatNums):concatNums.includes('−')?subtraction(concatNums): display
             concatNums = ''
-            displayCurrent.innerText = display
+            displayCurrent.innerText = String(display).length>10?display.toFixed(9):display
             console.log('equals')
+        }else if(value === 'C'){
+            display = ''
+            concatNums = ''
+            operation = ''
+            displayCurrent.innerText = display
         }
     }
     console.log(`Button clicked:${value}, Display${display}, PrevNum: ${concatNums}, Operator:${operation}`)
