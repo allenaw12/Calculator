@@ -29,7 +29,8 @@ span {
     display: flex;
     flex-direction: column;
     z-index: 10;
-    background-color: black;
+    /* background-color: black; */
+    background-color: #3B2361;
     border-radius: 1rem;
 }
 .button-container {
@@ -37,7 +38,8 @@ span {
     flex-flow: row nowrap;
     width: 24rem;
     margin: .5rem auto 2.5rem auto;
-    background-color: black;
+    /* background-color: black; */
+    background-color: #3B2361;
 }
 ul{
     padding: 0px;
@@ -45,7 +47,8 @@ ul{
 ul {
     display: flex;
     flex-flow: row-reverse wrap;
-    background-color: black;
+    /* background-color: black; */
+    background-color: #3B2361;
 }
 .nums li:nth-of-type(10){
     order:12;
@@ -59,7 +62,8 @@ ul {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #FEC223;
     list-style: none;
     font-size: 3rem;
     line-height: 150%;
