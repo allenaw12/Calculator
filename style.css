@@ -20,7 +20,8 @@ span {
     height: 5.5rem;
     margin: 3rem auto 2rem auto;
     display: block;
-    background-color: white;
+    background-color: rgb(236, 236, 236);
+    box-shadow: inset .3rem .3rem rgb(88, 86, 86);
 }
 .calc-container{
     width: 30rem;
@@ -32,11 +33,13 @@ span {
     /* background-color: black; */
     background-color: #3B2361;
     border-radius: 1rem;
+    border: 2px solid black;
+    box-shadow:.5rem .5rem 0 .2rem rgba(44, 40, 40, 0.655),.5rem .5rem 0 .2rem #3B2361;
 }
 .button-container {
     display: flex;
     flex-flow: row nowrap;
-    width: 24rem;
+    width: 25rem;
     margin: .5rem auto 2.5rem auto;
     /* background-color: black; */
     background-color: #3B2361;
@@ -50,23 +53,14 @@ ul {
     /* background-color: black; */
     background-color: #3B2361;
 }
-.nums li:nth-of-type(10){
-    order:12;
-}
-.nums li:nth-of-type(11){
-    order:11;
-}
-.nums li:nth-of-type(12){
-    order:10;
-}
 .nums li:nth-of-type(13){
-    order:13;
+    order:15;
 }
 .nums li:nth-of-type(14){
     order:14;
 }
 .nums li:nth-of-type(15){
-    order:15;
+    order:13;
 }
 .button-container li {
     text-align: center;
@@ -81,4 +75,6 @@ ul {
     line-height: 150%;
     margin: .5rem;
     cursor: pointer;
+    border: 1px solid black;
+    box-shadow: .25rem .25rem rgba(57, 52, 52, 0.655),.25rem .25rem #FEC223;
 }
