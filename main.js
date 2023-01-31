@@ -53,7 +53,7 @@ function clicky(){
             return +nums[0] * +nums[1]
         }
         function equation(){
-            return concatNums.includes('+')?addition(concatNums):concatNums.includes('/')?division(concatNums):concatNums.includes('x')?multiplication(concatNums):concatNums.includes('−')?subtraction(concatNums): display
+            return concatNums.includes('+')?addition(concatNums):concatNums.includes('/')?division(concatNums):concatNums.includes('x')?multiplication(concatNums):concatNums.includes('−')?subtraction(concatNums): String(display).slice(0,11)
         }
 
 ////if statements for button presses filter
@@ -64,78 +64,79 @@ function clicky(){
                 console.log('concat is nan and neg')
                 concatNums += value
                 console.log(concatNums)
-                display = concatNums.split(operation).length === 1? concatNums:concatNums.split(operation)[1]
-                displayCurrent.innerText = display
+                display = concatNums.split(operation).length === concatNums.split('').length? concatNums:concatNums.split(operation)[1]
+                displayCurrent.innerText = String(display).slice(0,11)
             }else if(isNaN(Number(concatNums))){
                 console.log('concat is nan')
                 concatNums += value
                 display = concatNums.split(operation)[1]
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
             }else{
                 concatNums += value
                 display = concatNums
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
             }
         }else{
             if(value === '+'){
-                
                     operation = value
                     concatNums +=  operation
                     display = concatNums.split(operation)[0]
-                    displayCurrent.innerText = display
+                    displayCurrent.innerText = String(display).slice(0,11)
                     console.log('add opp')
-                    
             }else if(value === '−'){
                 operation = value
                 concatNums +=  operation
                 display = concatNums.split(operation)[0]
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
                 console.log('minus opp')
             }else if(value === 'x'){
                 operation = value
                 concatNums +=  operation
                 display = concatNums.split(operation)[0]
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
                 console.log('multiply opp')
             }else if(value === '/'){
                 operation = value
                 concatNums +=  operation
                 display = concatNums.split(operation)[0]
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
                 console.log('divide opp')
             }else if(value === '='){
                 if(prevEq != ''){
+                    console.log('prevEq not empty')
                     concatNums = display + prevEq[1] + prevEq[0].split(`${prevEq[1]}`)[1]
                     console.log(concatNums)
                     prevEq[0] = concatNums
                     display = equation()
-                    displayCurrent.innerText = display
+                    console.log(display)
+                    displayCurrent.innerText = String(display).slice(0,11)
                     concatNums = ''
                 }else{
+                    console.log('prevEq empty')
                     prevEq = [concatNums, operation]
                     console.log(concatNums, operation)
                     operation = value
                     console.log('problem',concatNums)
                     display = equation()
                     concatNums = ''
-                    displayCurrent.innerText = String(display).length>10?display.toFixed(9):display
+                    displayCurrent.innerText = String(display).length>10?display.toFixed(9).slice(0,11):String(display).slice(0,11)
                     console.log('equals')
             }
             }else if(value === 'C'){
                 display = ''
                 concatNums = ''
                 operation = ''
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '␡'){
                 concatNums = concatNums.slice(0,concatNums.length-1)
                 display = concatNums
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '(-)'){
                 console.log(concatNums)
                 concatNums = isNaN(concatNums)&&concatNums.includes(operation)?concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]: isNaN(concatNums)?concatNums + '-': '-' + concatNums
                 console.log(concatNums)
                 display = concatNums == '-' ? concatNums: isNaN(concatNums)?concatNums.split(operation)[1]:concatNums
-                displayCurrent.innerText = display
+                displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '😃'){
                 let colors = ['white', 'red', 'blue', 'fuchsia', 'black', 'silver', 'gray', 'maroon', 'purple', 'green', 'lime', 'olive', 'yellow', 'navy', 'teal', 'aqua']
                 let bg = colors[Math.round(Math.random()*colors.length)]
