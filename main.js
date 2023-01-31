@@ -62,18 +62,18 @@ function clicky(){
             console.log('val is num')
             if(isNaN(Number(concatNums))&&concatNums[0]=='-'){
                 console.log('concat is nan and neg')
-                concatNums += value
+                concatNums.includes('.') && value === '.'?concatNums: concatNums += value
                 console.log(concatNums)
                 console.log('split', concatNums.split(operation).length, concatNums.split(operation))
                 display = concatNums.split(operation).length === concatNums.split('').length? concatNums:concatNums.split(operation)[1]
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(isNaN(Number(concatNums))){
                 console.log('concat is nan')
-                concatNums += value
+                concatNums.includes('.') && value === '.'?concatNums: concatNums += value
                 display = concatNums.split(operation)[1]
                 displayCurrent.innerText = String(display).slice(0,11)
             }else{
-                concatNums += value
+                concatNums.includes('.') && value === '.'?concatNums: concatNums += value
                 display = concatNums
                 displayCurrent.innerText = String(display).slice(0,11)
             }
@@ -205,10 +205,24 @@ function clicky(){
                 display = concatNums
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '(-)'){
-                console.log(concatNums)
-                concatNums = isNaN(concatNums)&&concatNums.includes(operation)?concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]: isNaN(concatNums)?concatNums + '-': '-' + concatNums
-                console.log(concatNums)
+            
+                if(operation != '' && concatNums.includes(operation)&&isNaN(concatNums)){
+                    console.log('concat has operation in it')
+                    concatNums = concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]
+                }else if(concatNums.includes('-')){
+                    console.log('concat has minus already')
+                    //concatNums = concatNums + '-'
+                }else{
+                    console.log('else')
+                    concatNums = '-' + (concatNums || display)
+                }
+
+                // concatNums = concatNums.includes(operation)?concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]: isNaN(concatNums)?concatNums + '-': '-' + concatNums
+
+                console.log('displaying concats', concatNums)
+
                 display = concatNums == '-' ? concatNums: isNaN(concatNums)?concatNums.split(operation)[1]:concatNums
+
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '😃'){
                 let colors = ['white', 'red', 'blue', 'fuchsia', 'black', 'silver', 'gray', 'maroon', 'purple', 'green', 'lime', 'olive', 'yellow', 'navy', 'teal', 'aqua']
