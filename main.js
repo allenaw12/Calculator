@@ -64,6 +64,7 @@ function clicky(){
                 console.log('concat is nan and neg')
                 concatNums += value
                 console.log(concatNums)
+                console.log('split', concatNums.split(operation).length, concatNums.split(operation))
                 display = concatNums.split(operation).length === concatNums.split('').length? concatNums:concatNums.split(operation)[1]
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(isNaN(Number(concatNums))){
@@ -78,29 +79,101 @@ function clicky(){
             }
         }else{
             if(value === '+'){
+                if(operation === '='){
+                    console.log('ADD after equals')
+                    operation = value
+                    concatNums = display + operation
+                    prevEq = [concatNums,operation]
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else if(isNaN(Number(concatNums))){
+                    console.log('concat is nan ADD')
+                    operation = value
+                    prevEq = [concatNums,operation]
+                    display = equation()
+                    console.log(display)
+                    concatNums = display + operation
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else{
                     operation = value
                     concatNums +=  operation
                     display = concatNums.split(operation)[0]
                     displayCurrent.innerText = String(display).slice(0,11)
                     console.log('add opp')
+                }
             }else if(value === '−'){
+                if(operation === '='){
+                    console.log('SUBTRACT after equals')
+                    operation = value
+                    concatNums = display + operation
+                    prevEq = [concatNums,operation]
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else if(isNaN(Number(concatNums))){
+                    console.log('concat is nan SUBTRACT')
+                    operation = value
+                    prevEq = [concatNums,operation]
+                    display = equation()
+                    console.log(display)
+                    concatNums = display + operation
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else{
                 operation = value
                 concatNums +=  operation
                 display = concatNums.split(operation)[0]
                 displayCurrent.innerText = String(display).slice(0,11)
                 console.log('minus opp')
+                }
             }else if(value === 'x'){
+                if(operation === '='){
+                    console.log('MULT after equals')
+                    operation = value
+                    concatNums = display + operation
+                    prevEq = [concatNums,operation]
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else if(isNaN(Number(concatNums))){
+                    console.log('concat is nan MULT')
+                    operation = value
+                    prevEq = [concatNums,operation]
+                    display = equation()
+                    console.log(display)
+                    concatNums = display + operation
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else{
                 operation = value
                 concatNums +=  operation
                 display = concatNums.split(operation)[0]
                 displayCurrent.innerText = String(display).slice(0,11)
                 console.log('multiply opp')
+                }
             }else if(value === '/'){
+                if(operation === '='){
+                    console.log('DIVIDE after equals')
+                    operation = value
+                    concatNums = display + operation
+                    prevEq = [concatNums,operation]
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else if(isNaN(Number(concatNums))){
+                    console.log('concat is nan DIVIDE')
+                    operation = value
+                    prevEq = [concatNums,operation]
+                    display = equation()
+                    console.log(display)
+                    concatNums = display + operation
+                    console.log(concatNums)
+                    displayCurrent.innerText = String(display).slice(0,11)
+                }else{
                 operation = value
                 concatNums +=  operation
                 display = concatNums.split(operation)[0]
                 displayCurrent.innerText = String(display).slice(0,11)
                 console.log('divide opp')
+                }
             }else if(value === '='){
                 if(prevEq != ''){
                     console.log('prevEq not empty')
