@@ -87,6 +87,9 @@ function clicky(){
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
                 }else if(isNaN(Number(concatNums))){
+                    if(concatNums.split(operation)[1]===''){
+                        console.log('multi clicks add')
+                    }else{
                     console.log('concat is nan ADD')
                     operation = value
                     prevEq = [concatNums,operation]
@@ -95,6 +98,7 @@ function clicky(){
                     concatNums = display + operation
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
+                    }
                 }else{
                     operation = value
                     concatNums +=  operation
@@ -111,6 +115,9 @@ function clicky(){
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
                 }else if(isNaN(Number(concatNums))){
+                    if(concatNums.split(operation)[1]===''){
+                        console.log('multi clicks subtract')
+                    }else{
                     console.log('concat is nan SUBTRACT')
                     operation = value
                     prevEq = [concatNums,operation]
@@ -119,12 +126,13 @@ function clicky(){
                     concatNums = display + operation
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
+                    }
                 }else{
-                operation = value
-                concatNums +=  operation
-                display = concatNums.split(operation)[0]
-                displayCurrent.innerText = String(display).slice(0,11)
-                console.log('minus opp')
+                    operation = value
+                    concatNums +=  operation
+                    display = concatNums.split(operation)[0]
+                    displayCurrent.innerText = String(display).slice(0,11)
+                    console.log('minus opp')
                 }
             }else if(value === 'x'){
                 if(operation === '='){
@@ -135,6 +143,9 @@ function clicky(){
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
                 }else if(isNaN(Number(concatNums))){
+                    if(concatNums.split(operation)[1]===''){
+                        console.log('multi clicks mult')
+                    }else{
                     console.log('concat is nan MULT')
                     operation = value
                     prevEq = [concatNums,operation]
@@ -143,12 +154,13 @@ function clicky(){
                     concatNums = display + operation
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
+                    }
                 }else{
-                operation = value
-                concatNums +=  operation
-                display = concatNums.split(operation)[0]
-                displayCurrent.innerText = String(display).slice(0,11)
-                console.log('multiply opp')
+                    operation = value
+                    concatNums +=  operation
+                    display = concatNums.split(operation)[0]
+                    displayCurrent.innerText = String(display).slice(0,11)
+                    console.log('multiply opp')
                 }
             }else if(value === '/'){
                 if(operation === '='){
@@ -159,6 +171,9 @@ function clicky(){
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
                 }else if(isNaN(Number(concatNums))){
+                    if(concatNums.split(operation)[1]===''){
+                        console.log('multi clicks divide')
+                    }else{
                     console.log('concat is nan DIVIDE')
                     operation = value
                     prevEq = [concatNums,operation]
@@ -167,12 +182,13 @@ function clicky(){
                     concatNums = display + operation
                     console.log(concatNums)
                     displayCurrent.innerText = String(display).slice(0,11)
+                    }
                 }else{
-                operation = value
-                concatNums +=  operation
-                display = concatNums.split(operation)[0]
-                displayCurrent.innerText = String(display).slice(0,11)
-                console.log('divide opp')
+                    operation = value
+                    concatNums +=  operation
+                    display = concatNums.split(operation)[0]
+                    displayCurrent.innerText = String(display).slice(0,11)
+                    console.log('divide opp')
                 }
             }else if(value === '='){
                 if(prevEq != ''){
@@ -194,7 +210,7 @@ function clicky(){
                     concatNums = ''
                     displayCurrent.innerText = String(display).length>10?display.toFixed(9).slice(0,11):String(display).slice(0,11)
                     console.log('equals')
-            }
+                }
             }else if(value === 'C'){
                 display = ''
                 concatNums = ''
