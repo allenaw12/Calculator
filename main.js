@@ -202,27 +202,25 @@ function clicky(){
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '␡'){
                 concatNums = concatNums.slice(0,concatNums.length-1)
-                display = concatNums
+                display = concatNums.includes(operation)? concatNums.split(operation)[1] : concatNums
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '(-)'){
-            
-                if(operation != '' && concatNums.includes(operation)&&isNaN(concatNums)){
+                if(operation != '' && concatNums.includes(operation)){
                     console.log('concat has operation in it')
-                    concatNums = concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]
+                    if(concatNums.split(operation)[1].includes('-')){
+                        console.log('already a minus!!!')
+                        concatNums=concatNums
+                    }else{
+                        concatNums = concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]}
                 }else if(concatNums.includes('-')){
                     console.log('concat has minus already')
                     //concatNums = concatNums + '-'
                 }else{
                     console.log('else')
-                    concatNums = '-' + (concatNums || display)
+                    display<0 || concatNums<0 ? concatNums = concatNums || display : concatNums = '-' + (concatNums || display)
                 }
-
-                // concatNums = concatNums.includes(operation)?concatNums.split(operation)[0] + operation + '-' + concatNums.split(operation)[1]: isNaN(concatNums)?concatNums + '-': '-' + concatNums
-
                 console.log('displaying concats', concatNums)
-
                 display = concatNums == '-' ? concatNums: isNaN(concatNums)?concatNums.split(operation)[1]:concatNums
-
                 displayCurrent.innerText = String(display).slice(0,11)
             }else if(value === '😃'){
                 let colors = ['white', 'red', 'blue', 'fuchsia', 'black', 'silver', 'gray', 'maroon', 'purple', 'green', 'lime', 'olive', 'yellow', 'navy', 'teal', 'aqua']
